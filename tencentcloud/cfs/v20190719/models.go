@@ -15,9 +15,10 @@
 package v20190719
 
 import (
-    "encoding/json"
-    tcerr "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
-    tchttp "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/http"
+	"encoding/json"
+
+	tcerr "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
+	tchttp "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/http"
 )
 
 type AutoSnapshotPolicyInfo struct {
@@ -119,7 +120,7 @@ type AvailableZone struct {
 	Types []*AvailableType `json:"Types,omitempty" name:"Types"`
 
 	// 可用区中英文名称
-	ZoneName *string `json:"ZoneName,omitempty" name:"ZoneName"`
+	ZoneEnName *string `json:"ZoneName,omitempty" name:"ZoneName"`
 }
 
 // Predefined struct for user
@@ -133,7 +134,7 @@ type BindAutoSnapshotPolicyRequestParams struct {
 
 type BindAutoSnapshotPolicyRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 快照策略ID
 	AutoSnapshotPolicyId *string `json:"AutoSnapshotPolicyId,omitempty" name:"AutoSnapshotPolicyId"`
 
@@ -142,8 +143,8 @@ type BindAutoSnapshotPolicyRequest struct {
 }
 
 func (r *BindAutoSnapshotPolicyRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -176,8 +177,8 @@ type BindAutoSnapshotPolicyResponse struct {
 }
 
 func (r *BindAutoSnapshotPolicyResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -218,7 +219,7 @@ type CreateAutoSnapshotPolicyRequestParams struct {
 
 type CreateAutoSnapshotPolicyRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 快照重复时间点
 	Hour *string `json:"Hour,omitempty" name:"Hour"`
 
@@ -239,8 +240,8 @@ type CreateAutoSnapshotPolicyRequest struct {
 }
 
 func (r *CreateAutoSnapshotPolicyRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -277,8 +278,8 @@ type CreateAutoSnapshotPolicyResponse struct {
 }
 
 func (r *CreateAutoSnapshotPolicyResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -334,7 +335,7 @@ type CreateCfsFileSystemRequestParams struct {
 
 type CreateCfsFileSystemRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 可用区名称，例如ap-beijing-1，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的地域与可用区列表
 	Zone *string `json:"Zone,omitempty" name:"Zone"`
 
@@ -376,11 +377,14 @@ type CreateCfsFileSystemRequest struct {
 
 	// 文件系统容量，turbo系列必填，单位为GiB。 turbo标准型单位GB，起售40TiB，即40960 GiB；扩容步长20TiB，即20480 GiB。turbo性能型起售20TiB，即20480 GiB；扩容步长10TiB，10240 GiB。
 	Capacity *uint64 `json:"Capacity,omitempty" name:"Capacity"`
+
+	//私有云特殊字段,  表示资源池id
+	TagId *int64 `json:"TagId,omitempty" name:"TagId"`
 }
 
 func (r *CreateCfsFileSystemRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -446,8 +450,8 @@ type CreateCfsFileSystemResponse struct {
 }
 
 func (r *CreateCfsFileSystemResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -467,7 +471,7 @@ type CreateCfsPGroupRequestParams struct {
 
 type CreateCfsPGroupRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 权限组名称，1-64个字符且只能为中文，字母，数字，下划线或横线
 	Name *string `json:"Name,omitempty" name:"Name"`
 
@@ -476,8 +480,8 @@ type CreateCfsPGroupRequest struct {
 }
 
 func (r *CreateCfsPGroupRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -522,8 +526,8 @@ type CreateCfsPGroupResponse struct {
 }
 
 func (r *CreateCfsPGroupResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -552,7 +556,7 @@ type CreateCfsRuleRequestParams struct {
 
 type CreateCfsRuleRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 权限组 ID
 	PGroupId *string `json:"PGroupId,omitempty" name:"PGroupId"`
 
@@ -570,8 +574,8 @@ type CreateCfsRuleRequest struct {
 }
 
 func (r *CreateCfsRuleRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -622,8 +626,8 @@ type CreateCfsRuleResponse struct {
 }
 
 func (r *CreateCfsRuleResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -646,7 +650,7 @@ type CreateCfsSnapshotRequestParams struct {
 
 type CreateCfsSnapshotRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统id
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
 
@@ -658,8 +662,8 @@ type CreateCfsSnapshotRequest struct {
 }
 
 func (r *CreateCfsSnapshotRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -693,8 +697,8 @@ type CreateCfsSnapshotResponse struct {
 }
 
 func (r *CreateCfsSnapshotResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -753,7 +757,7 @@ type CreateMigrationTaskRequestParams struct {
 
 type CreateMigrationTaskRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 迁移任务名称
 	TaskName *string `json:"TaskName,omitempty" name:"TaskName"`
 
@@ -801,8 +805,8 @@ type CreateMigrationTaskRequest struct {
 }
 
 func (r *CreateMigrationTaskRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -848,8 +852,8 @@ type CreateMigrationTaskResponse struct {
 }
 
 func (r *CreateMigrationTaskResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -866,14 +870,14 @@ type DeleteAutoSnapshotPolicyRequestParams struct {
 
 type DeleteAutoSnapshotPolicyRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 快照策略ID
 	AutoSnapshotPolicyId *string `json:"AutoSnapshotPolicyId,omitempty" name:"AutoSnapshotPolicyId"`
 }
 
 func (r *DeleteAutoSnapshotPolicyRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -905,8 +909,8 @@ type DeleteAutoSnapshotPolicyResponse struct {
 }
 
 func (r *DeleteAutoSnapshotPolicyResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -923,14 +927,14 @@ type DeleteCfsFileSystemRequestParams struct {
 
 type DeleteCfsFileSystemRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统 ID。说明，进行删除文件系统操作前需要先调用 DeleteMountTarget 接口删除该文件系统的挂载点，否则会删除失败。
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
 }
 
 func (r *DeleteCfsFileSystemRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -959,8 +963,8 @@ type DeleteCfsFileSystemResponse struct {
 }
 
 func (r *DeleteCfsFileSystemResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -977,14 +981,14 @@ type DeleteCfsPGroupRequestParams struct {
 
 type DeleteCfsPGroupRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 权限组 ID
 	PGroupId *string `json:"PGroupId,omitempty" name:"PGroupId"`
 }
 
 func (r *DeleteCfsPGroupRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1019,8 +1023,8 @@ type DeleteCfsPGroupResponse struct {
 }
 
 func (r *DeleteCfsPGroupResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1040,7 +1044,7 @@ type DeleteCfsRuleRequestParams struct {
 
 type DeleteCfsRuleRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 权限组 ID
 	PGroupId *string `json:"PGroupId,omitempty" name:"PGroupId"`
 
@@ -1049,8 +1053,8 @@ type DeleteCfsRuleRequest struct {
 }
 
 func (r *DeleteCfsRuleRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1086,8 +1090,8 @@ type DeleteCfsRuleResponse struct {
 }
 
 func (r *DeleteCfsRuleResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1107,7 +1111,7 @@ type DeleteCfsSnapshotRequestParams struct {
 
 type DeleteCfsSnapshotRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统快照id
 	SnapshotId *string `json:"SnapshotId,omitempty" name:"SnapshotId"`
 
@@ -1116,8 +1120,8 @@ type DeleteCfsSnapshotRequest struct {
 }
 
 func (r *DeleteCfsSnapshotRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1150,8 +1154,8 @@ type DeleteCfsSnapshotResponse struct {
 }
 
 func (r *DeleteCfsSnapshotResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1168,14 +1172,14 @@ type DeleteMigrationTaskRequestParams struct {
 
 type DeleteMigrationTaskRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 迁移任务ID
 	TaskId *string `json:"TaskId,omitempty" name:"TaskId"`
 }
 
 func (r *DeleteMigrationTaskRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1204,8 +1208,8 @@ type DeleteMigrationTaskResponse struct {
 }
 
 func (r *DeleteMigrationTaskResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1225,7 +1229,7 @@ type DeleteMountTargetRequestParams struct {
 
 type DeleteMountTargetRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统 ID
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
 
@@ -1234,8 +1238,8 @@ type DeleteMountTargetRequest struct {
 }
 
 func (r *DeleteMountTargetRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1265,8 +1269,8 @@ type DeleteMountTargetResponse struct {
 }
 
 func (r *DeleteMountTargetResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1289,7 +1293,7 @@ type DeleteUserQuotaRequestParams struct {
 
 type DeleteUserQuotaRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统 ID
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
 
@@ -1301,8 +1305,8 @@ type DeleteUserQuotaRequest struct {
 }
 
 func (r *DeleteUserQuotaRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1333,8 +1337,8 @@ type DeleteUserQuotaResponse struct {
 }
 
 func (r *DeleteUserQuotaResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1366,7 +1370,7 @@ type DescribeAutoSnapshotPoliciesRequestParams struct {
 
 type DescribeAutoSnapshotPoliciesRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 快照策略ID
 	AutoSnapshotPolicyId *string `json:"AutoSnapshotPolicyId,omitempty" name:"AutoSnapshotPolicyId"`
 
@@ -1387,8 +1391,8 @@ type DescribeAutoSnapshotPoliciesRequest struct {
 }
 
 func (r *DescribeAutoSnapshotPoliciesRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1428,8 +1432,8 @@ type DescribeAutoSnapshotPoliciesResponse struct {
 }
 
 func (r *DescribeAutoSnapshotPoliciesResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1440,17 +1444,15 @@ func (r *DescribeAutoSnapshotPoliciesResponse) FromJsonString(s string) error {
 
 // Predefined struct for user
 type DescribeAvailableZoneInfoRequestParams struct {
-
 }
 
 type DescribeAvailableZoneInfoRequest struct {
 	*tchttp.BaseRequest
-	
 }
 
 func (r *DescribeAvailableZoneInfoRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1460,7 +1462,7 @@ func (r *DescribeAvailableZoneInfoRequest) FromJsonString(s string) error {
 	if err := json.Unmarshal([]byte(s), &f); err != nil {
 		return err
 	}
-	
+
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeAvailableZoneInfoRequest has unknown keys!", "")
 	}
@@ -1482,8 +1484,8 @@ type DescribeAvailableZoneInfoResponse struct {
 }
 
 func (r *DescribeAvailableZoneInfoResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1506,7 +1508,7 @@ type DescribeBucketListRequestParams struct {
 
 type DescribeBucketListRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 数据源服务商。COS: 腾讯云COS，OSS: 阿里云OSS，OBS:华为云OBS
 	SrcService *string `json:"SrcService,omitempty" name:"SrcService"`
 
@@ -1518,8 +1520,8 @@ type DescribeBucketListRequest struct {
 }
 
 func (r *DescribeBucketListRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1556,8 +1558,8 @@ type DescribeBucketListResponse struct {
 }
 
 func (r *DescribeBucketListResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1574,14 +1576,14 @@ type DescribeCfsFileSystemClientsRequestParams struct {
 
 type DescribeCfsFileSystemClientsRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统 ID。
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
 }
 
 func (r *DescribeCfsFileSystemClientsRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1613,8 +1615,8 @@ type DescribeCfsFileSystemClientsResponse struct {
 }
 
 func (r *DescribeCfsFileSystemClientsResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1637,7 +1639,7 @@ type DescribeCfsFileSystemsRequestParams struct {
 
 type DescribeCfsFileSystemsRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统 ID
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
 
@@ -1649,8 +1651,8 @@ type DescribeCfsFileSystemsRequest struct {
 }
 
 func (r *DescribeCfsFileSystemsRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1687,8 +1689,8 @@ type DescribeCfsFileSystemsResponse struct {
 }
 
 func (r *DescribeCfsFileSystemsResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1699,17 +1701,15 @@ func (r *DescribeCfsFileSystemsResponse) FromJsonString(s string) error {
 
 // Predefined struct for user
 type DescribeCfsPGroupsRequestParams struct {
-
 }
 
 type DescribeCfsPGroupsRequest struct {
 	*tchttp.BaseRequest
-	
 }
 
 func (r *DescribeCfsPGroupsRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1719,7 +1719,7 @@ func (r *DescribeCfsPGroupsRequest) FromJsonString(s string) error {
 	if err := json.Unmarshal([]byte(s), &f); err != nil {
 		return err
 	}
-	
+
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeCfsPGroupsRequest has unknown keys!", "")
 	}
@@ -1741,8 +1741,8 @@ type DescribeCfsPGroupsResponse struct {
 }
 
 func (r *DescribeCfsPGroupsResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1759,14 +1759,14 @@ type DescribeCfsRulesRequestParams struct {
 
 type DescribeCfsRulesRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 权限组 ID
 	PGroupId *string `json:"PGroupId,omitempty" name:"PGroupId"`
 }
 
 func (r *DescribeCfsRulesRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1798,8 +1798,8 @@ type DescribeCfsRulesResponse struct {
 }
 
 func (r *DescribeCfsRulesResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1810,17 +1810,15 @@ func (r *DescribeCfsRulesResponse) FromJsonString(s string) error {
 
 // Predefined struct for user
 type DescribeCfsServiceStatusRequestParams struct {
-
 }
 
 type DescribeCfsServiceStatusRequest struct {
 	*tchttp.BaseRequest
-	
 }
 
 func (r *DescribeCfsServiceStatusRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1830,7 +1828,7 @@ func (r *DescribeCfsServiceStatusRequest) FromJsonString(s string) error {
 	if err := json.Unmarshal([]byte(s), &f); err != nil {
 		return err
 	}
-	
+
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeCfsServiceStatusRequest has unknown keys!", "")
 	}
@@ -1852,8 +1850,8 @@ type DescribeCfsServiceStatusResponse struct {
 }
 
 func (r *DescribeCfsServiceStatusResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1864,17 +1862,15 @@ func (r *DescribeCfsServiceStatusResponse) FromJsonString(s string) error {
 
 // Predefined struct for user
 type DescribeCfsSnapshotOverviewRequestParams struct {
-
 }
 
 type DescribeCfsSnapshotOverviewRequest struct {
 	*tchttp.BaseRequest
-	
 }
 
 func (r *DescribeCfsSnapshotOverviewRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1884,7 +1880,7 @@ func (r *DescribeCfsSnapshotOverviewRequest) FromJsonString(s string) error {
 	if err := json.Unmarshal([]byte(s), &f); err != nil {
 		return err
 	}
-	
+
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "DescribeCfsSnapshotOverviewRequest has unknown keys!", "")
 	}
@@ -1906,8 +1902,8 @@ type DescribeCfsSnapshotOverviewResponse struct {
 }
 
 func (r *DescribeCfsSnapshotOverviewResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -1942,7 +1938,7 @@ type DescribeCfsSnapshotsRequestParams struct {
 
 type DescribeCfsSnapshotsRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统ID
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
 
@@ -1966,8 +1962,8 @@ type DescribeCfsSnapshotsRequest struct {
 }
 
 func (r *DescribeCfsSnapshotsRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2011,8 +2007,8 @@ type DescribeCfsSnapshotsResponse struct {
 }
 
 func (r *DescribeCfsSnapshotsResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2030,26 +2026,26 @@ type DescribeMigrationTasksRequestParams struct {
 	Limit *int64 `json:"Limit,omitempty" name:"Limit"`
 
 	// <br><li> taskId
-	// 
+	//
 	// 按照【迁移任务id】进行过滤。
 	// 类型：String
-	// 
+	//
 	// 必选：否
-	// 
+	//
 	// <br><li> taskName
-	// 
+	//
 	// 按照【迁移任务名字】进行模糊搜索过滤。
 	// 类型：String
-	// 
+	//
 	// 必选：否
-	// 
+	//
 	// 每次请求的Filters的上限为10，Filter.Values的上限为100。
 	Filters []*Filter `json:"Filters,omitempty" name:"Filters"`
 }
 
 type DescribeMigrationTasksRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 分页的偏移量，默认值为0。
 	Offset *int64 `json:"Offset,omitempty" name:"Offset"`
 
@@ -2057,26 +2053,26 @@ type DescribeMigrationTasksRequest struct {
 	Limit *int64 `json:"Limit,omitempty" name:"Limit"`
 
 	// <br><li> taskId
-	// 
+	//
 	// 按照【迁移任务id】进行过滤。
 	// 类型：String
-	// 
+	//
 	// 必选：否
-	// 
+	//
 	// <br><li> taskName
-	// 
+	//
 	// 按照【迁移任务名字】进行模糊搜索过滤。
 	// 类型：String
-	// 
+	//
 	// 必选：否
-	// 
+	//
 	// 每次请求的Filters的上限为10，Filter.Values的上限为100。
 	Filters []*Filter `json:"Filters,omitempty" name:"Filters"`
 }
 
 func (r *DescribeMigrationTasksRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2113,8 +2109,8 @@ type DescribeMigrationTasksResponse struct {
 }
 
 func (r *DescribeMigrationTasksResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2131,14 +2127,14 @@ type DescribeMountTargetsRequestParams struct {
 
 type DescribeMountTargetsRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统 ID
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
 }
 
 func (r *DescribeMountTargetsRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2173,8 +2169,8 @@ type DescribeMountTargetsResponse struct {
 }
 
 func (r *DescribeMountTargetsResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2197,7 +2193,7 @@ type DescribeSnapshotOperationLogsRequestParams struct {
 
 type DescribeSnapshotOperationLogsRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统快照ID
 	SnapshotId *string `json:"SnapshotId,omitempty" name:"SnapshotId"`
 
@@ -2209,8 +2205,8 @@ type DescribeSnapshotOperationLogsRequest struct {
 }
 
 func (r *DescribeSnapshotOperationLogsRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2247,8 +2243,8 @@ type DescribeSnapshotOperationLogsResponse struct {
 }
 
 func (r *DescribeSnapshotOperationLogsResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2276,7 +2272,7 @@ type DescribeUserQuotaRequestParams struct {
 
 type DescribeUserQuotaRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统 ID
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
 
@@ -2293,8 +2289,8 @@ type DescribeUserQuotaRequest struct {
 }
 
 func (r *DescribeUserQuotaRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2332,8 +2328,8 @@ type DescribeUserQuotaResponse struct {
 }
 
 func (r *DescribeUserQuotaResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2578,7 +2574,7 @@ type ModifyFileSystemAutoScaleUpRuleRequestParams struct {
 
 type ModifyFileSystemAutoScaleUpRuleRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统id
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
 
@@ -2593,8 +2589,8 @@ type ModifyFileSystemAutoScaleUpRuleRequest struct {
 }
 
 func (r *ModifyFileSystemAutoScaleUpRuleRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2638,8 +2634,8 @@ type ModifyFileSystemAutoScaleUpRuleResponse struct {
 }
 
 func (r *ModifyFileSystemAutoScaleUpRuleResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2739,7 +2735,7 @@ type ScaleUpFileSystemRequestParams struct {
 
 type ScaleUpFileSystemRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统Id
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
 
@@ -2748,8 +2744,8 @@ type ScaleUpFileSystemRequest struct {
 }
 
 func (r *ScaleUpFileSystemRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2785,8 +2781,8 @@ type ScaleUpFileSystemResponse struct {
 }
 
 func (r *ScaleUpFileSystemResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2815,7 +2811,7 @@ type SetUserQuotaRequestParams struct {
 
 type SetUserQuotaRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统 ID
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
 
@@ -2833,8 +2829,8 @@ type SetUserQuotaRequest struct {
 }
 
 func (r *SetUserQuotaRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2867,8 +2863,8 @@ type SetUserQuotaResponse struct {
 }
 
 func (r *SetUserQuotaResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2879,17 +2875,15 @@ func (r *SetUserQuotaResponse) FromJsonString(s string) error {
 
 // Predefined struct for user
 type SignUpCfsServiceRequestParams struct {
-
 }
 
 type SignUpCfsServiceRequest struct {
 	*tchttp.BaseRequest
-	
 }
 
 func (r *SignUpCfsServiceRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -2899,7 +2893,7 @@ func (r *SignUpCfsServiceRequest) FromJsonString(s string) error {
 	if err := json.Unmarshal([]byte(s), &f); err != nil {
 		return err
 	}
-	
+
 	if len(f) > 0 {
 		return tcerr.NewTencentCloudSDKError("ClientError.BuildRequestError", "SignUpCfsServiceRequest has unknown keys!", "")
 	}
@@ -2921,8 +2915,8 @@ type SignUpCfsServiceResponse struct {
 }
 
 func (r *SignUpCfsServiceResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3008,14 +3002,14 @@ type StopMigrationTaskRequestParams struct {
 
 type StopMigrationTaskRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 迁移任务名称
 	TaskId *string `json:"TaskId,omitempty" name:"TaskId"`
 }
 
 func (r *StopMigrationTaskRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3050,8 +3044,8 @@ type StopMigrationTaskResponse struct {
 }
 
 func (r *StopMigrationTaskResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3069,7 +3063,6 @@ type TagInfo struct {
 }
 
 type TieringDetailInfo struct {
-
 }
 
 // Predefined struct for user
@@ -3083,7 +3076,7 @@ type UnbindAutoSnapshotPolicyRequestParams struct {
 
 type UnbindAutoSnapshotPolicyRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 需要解绑的文件系统ID列表，用"," 分割
 	FileSystemIds *string `json:"FileSystemIds,omitempty" name:"FileSystemIds"`
 
@@ -3092,8 +3085,8 @@ type UnbindAutoSnapshotPolicyRequest struct {
 }
 
 func (r *UnbindAutoSnapshotPolicyRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3126,8 +3119,8 @@ type UnbindAutoSnapshotPolicyResponse struct {
 }
 
 func (r *UnbindAutoSnapshotPolicyResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3165,7 +3158,7 @@ type UpdateAutoSnapshotPolicyRequestParams struct {
 
 type UpdateAutoSnapshotPolicyRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 快照策略ID
 	AutoSnapshotPolicyId *string `json:"AutoSnapshotPolicyId,omitempty" name:"AutoSnapshotPolicyId"`
 
@@ -3192,8 +3185,8 @@ type UpdateAutoSnapshotPolicyRequest struct {
 }
 
 func (r *UpdateAutoSnapshotPolicyRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3232,8 +3225,8 @@ type UpdateAutoSnapshotPolicyResponse struct {
 }
 
 func (r *UpdateAutoSnapshotPolicyResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3253,7 +3246,7 @@ type UpdateCfsFileSystemNameRequestParams struct {
 
 type UpdateCfsFileSystemNameRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统 ID
 	FileSystemId *string `json:"FileSystemId,omitempty" name:"FileSystemId"`
 
@@ -3262,8 +3255,8 @@ type UpdateCfsFileSystemNameRequest struct {
 }
 
 func (r *UpdateCfsFileSystemNameRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3302,8 +3295,8 @@ type UpdateCfsFileSystemNameResponse struct {
 }
 
 func (r *UpdateCfsFileSystemNameResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3323,7 +3316,7 @@ type UpdateCfsFileSystemPGroupRequestParams struct {
 
 type UpdateCfsFileSystemPGroupRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 权限组 ID
 	PGroupId *string `json:"PGroupId,omitempty" name:"PGroupId"`
 
@@ -3332,8 +3325,8 @@ type UpdateCfsFileSystemPGroupRequest struct {
 }
 
 func (r *UpdateCfsFileSystemPGroupRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3369,8 +3362,8 @@ type UpdateCfsFileSystemPGroupResponse struct {
 }
 
 func (r *UpdateCfsFileSystemPGroupResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3390,7 +3383,7 @@ type UpdateCfsFileSystemSizeLimitRequestParams struct {
 
 type UpdateCfsFileSystemSizeLimitRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统容量限制大小，输入范围0-1073741824, 单位为GB；其中输入值为0时，表示不限制文件系统容量。
 	FsLimit *uint64 `json:"FsLimit,omitempty" name:"FsLimit"`
 
@@ -3399,8 +3392,8 @@ type UpdateCfsFileSystemSizeLimitRequest struct {
 }
 
 func (r *UpdateCfsFileSystemSizeLimitRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3430,8 +3423,8 @@ type UpdateCfsFileSystemSizeLimitResponse struct {
 }
 
 func (r *UpdateCfsFileSystemSizeLimitResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3454,7 +3447,7 @@ type UpdateCfsPGroupRequestParams struct {
 
 type UpdateCfsPGroupRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 权限组 ID
 	PGroupId *string `json:"PGroupId,omitempty" name:"PGroupId"`
 
@@ -3466,8 +3459,8 @@ type UpdateCfsPGroupRequest struct {
 }
 
 func (r *UpdateCfsPGroupRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3507,8 +3500,8 @@ type UpdateCfsPGroupResponse struct {
 }
 
 func (r *UpdateCfsPGroupResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3540,7 +3533,7 @@ type UpdateCfsRuleRequestParams struct {
 
 type UpdateCfsRuleRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 权限组 ID
 	PGroupId *string `json:"PGroupId,omitempty" name:"PGroupId"`
 
@@ -3561,8 +3554,8 @@ type UpdateCfsRuleRequest struct {
 }
 
 func (r *UpdateCfsRuleRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3614,8 +3607,8 @@ type UpdateCfsRuleResponse struct {
 }
 
 func (r *UpdateCfsRuleResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3638,7 +3631,7 @@ type UpdateCfsSnapshotAttributeRequestParams struct {
 
 type UpdateCfsSnapshotAttributeRequest struct {
 	*tchttp.BaseRequest
-	
+
 	// 文件系统快照ID
 	SnapshotId *string `json:"SnapshotId,omitempty" name:"SnapshotId"`
 
@@ -3650,8 +3643,8 @@ type UpdateCfsSnapshotAttributeRequest struct {
 }
 
 func (r *UpdateCfsSnapshotAttributeRequest) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3685,8 +3678,8 @@ type UpdateCfsSnapshotAttributeResponse struct {
 }
 
 func (r *UpdateCfsSnapshotAttributeResponse) ToJsonString() string {
-    b, _ := json.Marshal(r)
-    return string(b)
+	b, _ := json.Marshal(r)
+	return string(b)
 }
 
 // FromJsonString It is highly **NOT** recommended to use this function
@@ -3718,4 +3711,40 @@ type UserQuota struct {
 	// 文件使用个数，单位个
 	// 注意：此字段可能返回 null，表示取不到有效值。
 	FileUsed *uint64 `json:"FileUsed,omitempty" name:"FileUsed"`
+}
+
+type DescribeCfsTagsRequest struct {
+	*tchttp.BaseRequest
+
+	//国际化
+	InternationalFlag *int64 `json:"InternationalFlag,omitempty" name:"InternationalFlag"`
+	//可用区id
+	ZoneId *int64 `json:"ZoneId,omitempty" name:"ZoneId"`
+}
+
+type DescribeCfsTagsResponse struct {
+	*tchttp.BaseResponse
+	Response *struct {
+		// 资源池列表
+		Tags []CfsTagUser `json:"Tags,omitempty" name:"Tags"`
+	} `json:"Response"`
+}
+
+type CfsTagUser struct {
+	// 资源池id
+	TagId *int64 `json:"TagId,omitempty" name:"TagId"`
+	// 资源池name
+	TagName *string `json:"TagName,omitempty" name:"TagName"`
+	// 资源池打开状态
+	Status *int64 `json:"Status,omitempty" name:"Status"`
+	// 标准型SD是否可售
+	SdSaleStatus *string `json:"SdSaleStatus,omitempty" name:"SdSaleStatus"`
+	// 性能型HP是否可售
+	HpSaleStatus *string `json:"HpSaleStatus,omitempty" name:"HpSaleStatus"`
+	// 可用区id
+	ZoneId *int64 `json:"ZoneId,omitempty" name:"ZoneId"`
+	// 支持SMB
+	ISSMB *int64 `json:"ISSMB,omitempty" name:"ISSMB"`
+	// 支持NFS
+	ISNFS *int64 `json:"ISNFS,omitempty" name:"ISNFS"`
 }
